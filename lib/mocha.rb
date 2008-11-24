@@ -32,16 +32,16 @@ if defined?(MiniTest)
       end
     end
   end
-end
+else
+  require 'mocha/test_case_adapter'
+  require 'test/unit/testcase'
 
-require 'mocha/test_case_adapter'
-require 'test/unit/testcase'
-
-module Test
-  module Unit
-    class TestCase
-      include Mocha::Standalone
-      include Mocha::TestCaseAdapter
+  module Test
+    module Unit
+      class TestCase
+        include Mocha::Standalone
+        include Mocha::TestCaseAdapter
+      end
     end
   end
 end
