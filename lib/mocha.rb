@@ -32,10 +32,12 @@ if defined?(MiniTest)
       end
     end
   end
-else
-  require 'mocha/test_case_adapter'
-  require 'test/unit/testcase'
+end
 
+require 'mocha/test_case_adapter'
+require 'test/unit/testcase'
+
+unless Test::Unit::TestCase.ancestors.include?(Mocha::Standalone)
   module Test
     module Unit
       class TestCase
